@@ -1,0 +1,205 @@
+:root{ 
+    --clip-path: circle(50% at 49% 48%);
+    --clippy-full: polygon(0% 0%, 100% 0%, 100% 0%, 100% 100%, 100% 100%, 0% 100%, 0% 100%, 0% 0%);
+    --clippy-small: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    --teto-red: #ff1a40;       /* El rojo de su cabello y detalles */
+    --teto-dark: #2d2d2d;      /* El gris carbón de su uniforme */
+    --teto-light-grey: #e0e0e0; /* Para contrastes suaves */
+    --teto-accent-pink: #ff8fa3; /* El rosa de sus mejillas/luces */
+    
+    /* Gradientes y Efectos */
+    --teto-gradient: linear-gradient(135deg, var(--teto-red), #b3001e);
+    --teto-shadow: 0 4px 15px rgba(255, 26, 64, 0.3);
+}
+.description-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+.fondo_teto {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    z-index: -1;
+}
+.intruc {
+    font-family: 'Arial', sans-serif;
+    color: var(--teto-dark);
+    text-shadow: 1px 1px 2px rgba(255, 26, 64, 0.5);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 20px;
+}
+body {
+    background: var(--teto-light-grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    animation: 
+    up 1s ease-out;
+}
+.texts {
+    font-family: 'Arial', sans-serif;
+    color: var(--teto-dark);
+    text-shadow: 1px 1px 2px rgba(255, 26, 64, 0.5);
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.description {
+    font-size: 18px;
+    max-width: 600px;
+    text-align: center;
+}
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    background: var(--teto-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    animation: 
+    left 2s infinite alternate;
+    position: relative;
+}
+.title:hover::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--teto-red);
+    left: 0;
+    bottom: -5px;
+    animation: 
+    move_line 1s linear infinite;
+}
+.imggeneral {
+    width: 300px;
+    height: auto;
+    box-shadow: var(--teto-shadow);
+    margin-top: 20px;
+}
+.imgtetode {
+    width: 200px;
+    height: auto;
+    box-shadow: var(--teto-shadow);
+    margin-top: 20px;
+}
+.description {
+    clip-path: var(--clippy-full);
+    transition: all 0.8s ease-in-out, background 0.5s;
+    font-size: 18px;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    padding: 40px;
+    background: var(--teto-red);
+    color: var(--teto-light-grey);
+    clip-path: var(--clippy-small);
+    transition: all 0.8s ease-in-out, background 0.5s;
+}
+.description:hover {
+    clip-path: var(--clippy-full);
+    background: var(--teto-accent-pink);
+    color: var(--teto-dark);
+    background: linear-gradient(rgba(255,26,64,0.6), rgba(255,26,64,0.6)), url(fff.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.description::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--teto-red);
+    left: 0;
+    bottom: -5px;
+    animation: 
+    move_line 2s linear ;
+    clip-path: var(--clippy);
+}
+.description:hover::before {
+   --clippy: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+
+}
+.aleatoriopan{
+    position: fixed;
+    font-size: 3rem;
+    z-index: 999;
+    user-select: none;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.1s ease;
+    z-index: 999;
+    animation: 
+    moverx 7s linear infinite alternate,
+    movery 5s linear infinite alternate,
+    rotar 10s linear infinite;
+}
+.aleatoriopan:active{
+    transform: scale(1.5);
+}
+.taladro{
+    position: fixed;
+    font-size: 3rem;
+    z-index: 999;
+    user-select: none;
+    animation: 
+    moverX 7s linear infinite alternate,
+    moverY 5s linear infinite alternate,
+    Rotar 10s linear infinite;
+}
+@keyframes Rotar{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+@keyframes moverX{
+    from{left: 0%;}
+    to{left:  calc(100% - 50px);}
+}
+@keyframes movery{
+    from{top: 0%;}
+    to{top:  calc(100% - 50px);}
+}
+@keyframes rotar{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+@keyframes moverx{
+    from{left: 0%;}
+    to{left:  calc(100% - 50px);}
+}
+@keyframes movery{
+    from{top: 0%;}
+    to{top:  calc(100% - 50px);}
+}
+@keyframes up {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-20px);
+    }
+} 
